@@ -1,0 +1,20 @@
+def update_location (new_lonlat)
+    @survivor.update_attribute(:lonlat, new_lonlat)    
+  end
+
+  def flag_infected ()    
+    flag = request.raw_post    
+    @survivor = Survivor.find(params[:id])
+    @flagged_survivor = Survivor.find(flag)
+
+    if(@survivor.id != flag)
+      @@count += 1 
+      puts(@@count)
+      if(@@count == 3)
+        @flagged_survivor.update_attribute(:infected?, true)
+        @flagged_survivor.inventory.destroy 
+        @@count = 0; 
+      end       
+    end
+
+  end

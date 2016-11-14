@@ -1,0 +1,10 @@
+{
+	"inventory": {
+		"name":"inventory_0",
+		"water":5,
+		"food":1,
+		"medical_kits":0,
+		"ammo":0
+	}
+
+}

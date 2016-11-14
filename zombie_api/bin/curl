@@ -1,0 +1,56 @@
+create_survivors(){
+curl -v -X POST \
+	-H "Content-Type: application/json" \
+	-d @bin/survivor.json \
+	http://localhost:3000/survivors
+}
+
+create_inventory(){
+	curl -v -X POST \
+	-H "Content-Type: application/json" \
+	-d @bin/inventory.json \
+	curl http://localhost:3000/survivors/1/inventories	
+}
+
+update_location(){
+	curl --request PATCH \
+	-H "Content-Type: application/json" \
+	-d @bin/update_survivor_location.json \
+	http://localhost:3000/survivors/1
+}
+
+flag_infected(){
+	curl -v -X POST \
+	-H "Content-Type: application/json" \
+	-d @bin/survivor_flagged.json \
+	http://localhost:3000/survivors/3/flag_infected
+}
+
+trade(){
+	curl -v -X POST \
+	-H "Content-Type: application/json" \
+	-d @bin/trade.json \
+	http://localhost:3000/survivors/1/trade
+}
+
+stats(){
+	curl GET \
+	http://localhost:3000/stats
+}
+
+clear_survivors(){
+	curl -X DELETE \
+	http://localhost:3000/survivors/1 \
+	http://localhost:3000/survivors/2 \
+	http://localhost:3000/survivors/4 \
+	http://localhost:3000/survivors/5
+}
+
+unzombiefy(){
+	curl --request PATCH \
+	-H "Content-Type: application/json" \
+	-d @bin/cure.json \
+	http://localhost:3000/survivors/1
+}
+
+$1

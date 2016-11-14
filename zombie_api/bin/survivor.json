@@ -1,0 +1,9 @@
+{
+	"survivor":{
+		"name":"ajax(francis)",
+		"age":45,
+		"gender":"M",
+		"lonlat":"1000,-1000",
+		"infected?":false
+	}
+}
